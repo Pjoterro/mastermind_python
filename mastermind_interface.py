@@ -1,20 +1,5 @@
 # | <--  27 characters    --> |
 # | <--  betweeen pipes   --> |
-# |===========================|
-# |    M.A.S.T.E.R.M.I.N.D    |
-# |===========================|
-# |        COMBINATION:       |
-# |    X-X-X-X-X-X-X-X-X-X    |
-# |===========================|
-# |1:  1 2 3 4 5 6 7 8 9 0    |
-# |R:  C M I C M I C M I C    |
-# |===========================|
-# |11: 1 2 3 4 5 6 7 8 9 0    |
-# |R:  C M I C M I C M I C    |
-# |===========================|
-# |      Congratulations,     |
-# |   you guessed correctly!  |
-# |===========================|
 
 def format_combination(input):
 	result = ''
@@ -24,42 +9,43 @@ def format_combination(input):
 			result += '-'
 	return result
 
-def print_header():
-	print(' |===========================|')
-	print(' |    M.A.S.T.E.R.M.I.N.D    |')
+def print_header(version):
+	print('\n |###########################|')
+	print(' |     MASTERMIND v' + version + '     |')
 
-def print_difficulty():
-	print('TODO: mastermind_interface.py::print_difficulty()')
-
-def print_combination(length):
+def print_difficulty(combination_length, digits_variety, is_unique):
 	print(' |===========================|')
+	print(' | Digits Variety: 0 - ' + str(digits_variety-1) + '     |')
+	if (is_unique):
+		is_unique_symbol = 'Yes'
+	else:
+		is_unique_symbol = 'No '
+	print(' | Is Unique: ' + is_unique_symbol + '            |')
 	print(' |        COMBINATION:       |')
-	line = ' |' + (14-length)*' ' + format_combination('X'*length) + (14-length)*' ' + '|'
+	line = ' |' + (14-combination_length)*' ' + format_combination('X'*combination_length) + (14-combination_length)*' ' + '|'
 	print(line)
+	print(' |===========================|')
 
 def print_input():
-	print(' |===========================|')
-	print(' | Your guess:', end = ' ')
+	print(' |Your guess:', end = ' ')
 
-def print_try(number, guess, result):
-	print(' |===========================|')
-	line1 = ' |' + str(number) + ':' + (13-len(str(number))-len(guess))*' ' + format_combination(guess) + (14-len(guess))*' ' + '|'
+def print_try(guess_number, guess, result):
+	print(' |---                     ---|')
+	line1 = ' |T' + str(guess_number) + ':' + (12-len(str(guess_number))-len(guess))*' ' + format_combination(guess) + (14-len(guess))*' ' + '|'
 	print(line1)
 	line2 = ' |R:' + (12-len(guess))*' ' + format_combination(result) + (14-len(guess))*' ' + '|'
 	print(line2)
+	print(' |=======             =======|')
 
 def print_win():
-	print(' |===========================|')
 	print(' |      Congratulations,     |')
 	print(' |   you guessed correctly!  |')
-	print(' |===========================|')
+	print(' |###########################|\n')
 
 def print_loose(combination):
-	print(' |===========================|')
 	print(' |          You lost,        |')
 	print(' |   better luck next time.  |')
-	print(' |                           |')
 	print(' | PS: The combinationw was: |')
 	line = ' |' + (14-len(combination))*' ' + format_combination(combination) + (14-len(combination))*' ' + '|'
 	print(line)
-	print(' |===========================|')
+	print(' |###########################|\n')

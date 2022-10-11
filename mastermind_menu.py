@@ -21,7 +21,7 @@ def print_mechanic():
 	print('\"C\" - correct number in correct place')
 	print('\"I\" - incorrect number (is not present in combination)')
 	print('\"M\" - missplaced letter (correct letter in incorrect place)')
-	print('For combination \"4-8-2-6\", a guess \"4-5-3-8\" will result in \"C-I-I-M\."')
+	print('For combination \"4-8-2-6\", a guess \"4-5-3-8\" will result in \"C-I-I-M.\"')
 	print('4 - is (C)orrect')
 	print('5 - is (I)ncorrect')
 	print('3 - is (I)ncorrect')

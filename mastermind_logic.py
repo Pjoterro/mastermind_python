@@ -1,15 +1,16 @@
 import random
 
-def generate_combination(length, variety, unique):
-    colours = list(range(0, variety))
+def generate_combination(combination_length, digits_variety, is_unique):
+    colours = list(range(0, digits_variety))
     combination = []
-    for i in range(length):
+    for i in range(combination_length):
         index = random.randint(0, len(colours)-1)
         combination.append(str(colours[index]))
-        if (unique):
+        if is_unique:
             del colours[index]
     return combination
 
+# TODO: redo when implementing difficulty
 def compare_combinations(combination, guess):
     result = ''
     for i in range(len(guess)):
