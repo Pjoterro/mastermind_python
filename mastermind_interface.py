@@ -49,3 +49,7 @@ def print_loose(combination):
 	line = ' |' + (14-len(combination))*' ' + format_combination(combination) + (14-len(combination))*' ' + '|'
 	print(line)
 	print(' |###########################|\n')
+
+def print_wrong_input():
+	print(' |  WRONG INPUT, TRY AGAIN!  |')
+	print(' |---                     ---|')

@@ -24,9 +24,6 @@ IS_UNIQUE = True
 # 2 - hard - with duplicates and result does not show number of occurance
 DIFFICULTY = 0
 
-# print_welcome(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE)
-# print_instruction()
-# print_mechanic()
 combination = generate_combination(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE)
 
 print_header(VERSION)
@@ -34,7 +31,11 @@ print_difficulty(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE)
 for guess_taken in range(1, MAX_GUESSES+1):
 	print_input()
 	guess = list(input())
-	print_try(guess_taken, guess, compare_combinations(combination, guess))
+	if (len(guess) != len(combination)):
+		guess_taken -= 1 #TODO: this does not reduce try count!!!
+		print_wrong_input()
+	else:
+		print_try(guess_taken, guess, compare_combinations(combination, guess))
 	if (guess == combination):
 		break
 
