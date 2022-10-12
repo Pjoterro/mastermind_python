@@ -1,16 +1,16 @@
 # This is my take on mastermind game. It is not perfect but it is mine
 #	- Pjoter 06.10.2022
-VERSION = '3.1.1'
+VERSION = '3.1.2'
 
 from mastermind_interface import *
 from mastermind_menu import *
 from mastermind_logic import *
 
 # Length of the combination can be between 4 and 10
-COMBINATION_LENGTH = 4
+COMBINATION_LENGTH = 6
 
 # Numbers of colours between 6 and 10
-DIGITS_VARIETY = 6
+DIGITS_VARIETY = 8
 
 # Max number of guesses bewteen 4 and 99
 MAX_GUESSES = 10
