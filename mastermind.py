@@ -1,21 +1,21 @@
 # This is my take on mastermind game. It is not perfect but it is mine
 #	- Pjoter 06.10.2022
-VERSION = '3.1.0'
+VERSION = '3.1.1'
 
 from mastermind_interface import *
 from mastermind_menu import *
 from mastermind_logic import *
 
-#Length of the combination can be between 4 and 10
+# Length of the combination can be between 4 and 10
 COMBINATION_LENGTH = 4
 
-#Numbers of colours between 6 and 10
+# Numbers of colours between 6 and 10
 DIGITS_VARIETY = 6
 
-#Max number of guesses bewteen 4 and 99
+# Max number of guesses bewteen 4 and 99
 MAX_GUESSES = 6
 
-#Combination can be unique (without duplicated digits) or not unique
+# Combination can be unique (without duplicated digits) or not unique
 #TODO: change this to difficulty level
 IS_UNIQUE = True
 
@@ -28,16 +28,17 @@ combination = generate_combination(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE
 
 print_header(VERSION)
 print_difficulty(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE)
-for guess_taken in range(1, MAX_GUESSES+1):
+guess_taken = 0
+while guess_taken < MAX_GUESSES:
 	print_input()
 	guess = list(input())
 	if (len(guess) != len(combination)):
-		guess_taken -= 1 #TODO: this does not reduce try count!!!
 		print_wrong_input()
 	else:
+		guess_taken += 1
 		print_try(guess_taken, guess, compare_combinations(combination, guess))
-	if (guess == combination):
-		break
+		if (guess == combination):
+			break
 
 if (guess == combination):
 	print_win()
