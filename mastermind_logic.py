@@ -20,13 +20,13 @@ def compare_combinations(combination, guess, difficulty):
 #             result += 'C'
 #             if (difficulty != 2):
 #                 combination[i] = ' ' # wstawia pusty znak
-#         else:
-#             if (guess[i] in combination & guess[i] != combination[i]):
+#         elif (guess[i] in combination):
+#             result += 'M'
 
 
     for i in range(len(guess)):
         if (guess[i] in combination):
-            if (guess[i] == combination [i]):
+            if (guess[i] == combination[i]):
                 result += 'C'
             else:
                 result += 'M'
