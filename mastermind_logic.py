@@ -1,19 +1,29 @@
 import random
 import re
 
-def generate_combination(combination_length, digits_variety, is_unique):
+def generate_combination(combination_length, digits_variety, difficulty):
     colours = list(range(0, digits_variety))
     combination = []
     for i in range(combination_length):
         index = random.randint(0, len(colours)-1)
         combination.append(str(colours[index]))
-        if is_unique:
+        if (difficulty == 0):
             del colours[index]
     return combination
 
 # TODO: redo when implementing difficulty
-def compare_combinations(combination, guess):
+def compare_combinations(combination, guess, difficulty):
     result = ''
+
+#     for i in range(len(guess)):
+#         if (guess[i] == combination[i]):
+#             result += 'C'
+#             if (difficulty != 2):
+#                 combination[i] = ' ' # wstawia pusty znak
+#         else:
+#             if (guess[i] in combination & guess[i] != combination[i]):
+
+
     for i in range(len(guess)):
         if (guess[i] in combination):
             if (guess[i] == combination [i]):
