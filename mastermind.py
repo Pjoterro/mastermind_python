@@ -13,7 +13,7 @@ COMBINATION_LENGTH = 4
 DIGITS_VARIETY = 6
 
 # Max number of guesses bewteen 4 and 99
-MAX_GUESSES = 6
+MAX_GUESSES = 10
 
 # Combination can be unique (without duplicated digits) or not unique
 #TODO: change this to difficulty level
@@ -32,6 +32,11 @@ guess_taken = 0
 while guess_taken < MAX_GUESSES:
 	print_input()
 	guess = list(input())
+
+	# TODO: make it work with regex
+	# if (input_regex_comparing(combination_to_string(guess), regex_creator(COMBINATION_LENGTH, DIGITS_VARIETY))):
+	# 	print_wrong_input()
+
 	if (len(guess) != len(combination)):
 		print_wrong_input()
 	else:
