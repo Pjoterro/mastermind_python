@@ -12,18 +12,14 @@ def generate_combination(combination_length, digits_variety, is_unique):
     return combination
 
 # TODO: redo when implementing difficulty
-def compare_combinations(combination, guess):
+def compare_combinations(combination, guess, difficulty):
+    if (difficulty == 0 or difficulty == 2):
+        return compare_easy_or_hard(combination, guess)
+    else:
+        return compare_medium(combination, guess)
+
+def compare_easy_or_hard(combination, guess):
     result = ''
-
-#     for i in range(len(guess)):
-#         if (guess[i] == combination[i]):
-#             result += 'C'
-#             if (difficulty != 2):
-#                 combination[i] = ' ' # wstawia pusty znak
-#         elif (guess[i] in combination):
-#             result += 'M'
-
-
     for i in range(len(guess)):
         if (guess[i] in combination):
             if (guess[i] == combination[i]):
@@ -32,6 +28,22 @@ def compare_combinations(combination, guess):
                 result += 'M'
         else:
             result += 'I'
+    return result
+
+def compare_medium(combination, guess):
+    combination_temp = combination
+    result = [None] * len(combination_temp)
+    for i in range(len(result)):
+        if (guess[i] == combination_temp[i]):
+            result[i] = 'C'
+            guess[i] = ' '
+            combination_temp[i] = ' '
+    for j in range(len(result)):
+        if(guess[j] != ' '):
+            if (guess[j] in combination_temp):
+                result[j] = 'M'
+            else:
+                result[j] = 'I'
     return result
 
 def combination_to_string(combination):

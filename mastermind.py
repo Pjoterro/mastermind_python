@@ -22,7 +22,7 @@ IS_UNIQUE = True
 # 0 - easy - no duplicates
 # 1 - medium - with duplicates but result count number of occurence
 # 2 - hard - with duplicates and result does not show number of occurance
-DIFFICULTY = 0
+DIFFICULTY = 1
 
 combination = generate_combination(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE)
 
@@ -41,7 +41,7 @@ while guess_taken < MAX_GUESSES:
 		print_wrong_input()
 	else:
 		guess_taken += 1
-		print_try(guess_taken, guess, compare_combinations(combination, guess))
+		print_try(guess_taken, guess, compare_combinations(combination, guess, DIFFICULTY))
 		if (guess == combination):
 			break
 
