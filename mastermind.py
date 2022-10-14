@@ -22,7 +22,7 @@ IS_UNIQUE = True
 # 0 - easy - no duplicates
 # 1 - medium - with duplicates but result count number of occurence
 # 2 - hard - with duplicates and result does not show number of occurance
-DIFFICULTY = 1
+DIFFICULTY = 0
 
 combination = generate_combination(COMBINATION_LENGTH, DIGITS_VARIETY, IS_UNIQUE)
 

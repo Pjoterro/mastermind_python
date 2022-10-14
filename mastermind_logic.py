@@ -1,5 +1,6 @@
 import random
 import re
+import copy
 
 def generate_combination(combination_length, digits_variety, is_unique):
     colours = list(range(0, digits_variety))
@@ -30,14 +31,16 @@ def compare_easy_or_hard(combination, guess):
             result += 'I'
     return result
 
-def compare_medium(combination, guess):
-    combination_temp = combination
+# this does not work
+def compare_medium(combination, guess, difficulty):
+    combination_temp = copy.deepcopy(combination)
     result = [None] * len(combination_temp)
     for i in range(len(result)):
         if (guess[i] == combination_temp[i]):
             result[i] = 'C'
-            guess[i] = ' '
-            combination_temp[i] = ' '
+            if (difficulty == 1):
+                guess[i] = ' '
+                combination_temp[i] = ' '
     for j in range(len(result)):
         if(guess[j] != ' '):
             if (guess[j] in combination_temp):
